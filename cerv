@@ -136,7 +136,7 @@ cd /lib/systemd/system/
 wget -q https://github.com/gamingmagic/unattended-installer/raw/master/myvncserver2.zip
 unzip -qq myvncserver2.zip
 systemctl daemon-reload
-systemctl enable myvncserver.service
+systemctl enable myvncserver2.service
 echo ""
 
 
@@ -145,8 +145,8 @@ echo "${BLUE}Step 10/${STEPS}:${NC} Installing Cervantes Files"
 chown -R rathena:rathena /home/rathena
 chown -R rathena:rathena /usr/share/cervantes
 cd /home/rathena
-sudo -u rathena sh -c "wget -q https://github.com/gamingmagic/unattended-installer/raw/master/vnc.zip unzip -qq myvncserver2.zip"
-unzip -qq vnc.zip
+sudo -u rathena sh -c "wget -q https://github.com/gamingmagic/unattended-installer/raw/master/vnc.zip"
+sudo -u rathena sh -c "unzip -qq vnc.zip"
 sudo -u rathena sh -c "chmod +x vnc.sh"
 sudo -u rathena sh -c "./vnc.sh $RATHENAPASS"
 rm vnc.sh

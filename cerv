@@ -58,7 +58,7 @@ bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password
 bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password_again password ragnarok"'
 
 apt-get -qy install mariadb-server
-wget -q https://github.com/gamingmagic/global/blob/master/msi.sh
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/msi.zip
 unzip -qq msi.zip
 chmod +x msi.sh
 ./msi.sh
@@ -101,7 +101,7 @@ echo ""
 echo "${BLUE}Step 7/${STEPS}:${NC} Creating User: rathena"
 echo "${YELLOW}This process is automatic and doesn't require user input.${NC}"
 echo "${YELLOW}Please do not type at the password prompt.${NC}"
-wget -q https://vhost.rocks/cervantes_scripts/createuser.sh
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/createuser.zip
 unzip -qq createuser.zip
 chmod +x createuser.sh
 ./createuser.sh $RATHENAPASS
@@ -114,7 +114,7 @@ echo ""
 echo "${BLUE}Step 8/${STEPS}:${NC} Setting Up Desktop Stuff"
 mkdir -p /usr/share/cervantes/
 cd /usr/share/cervantes/
-wget -q https://github.com/gamingmagic/global/raw/master/files.zip
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/files.zip
 unzip -qq files.zip
 cd links
 mkdir -p /home/rathena/Desktop
@@ -129,11 +129,11 @@ echo ""
 
 echo "${BLUE}Step 9/${STEPS}:${NC} Creating VNC Server Start-up Files"
 cd /usr/local/bin
-wget -q https://raw.githubusercontent.com/gamingmagic/global/master/myvncserver
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/myvncserver.zip
 unzip -qq myvncserver.zip
 chmod +x myvncserver
 cd /lib/systemd/system/
-wget -q https://raw.githubusercontent.com/gamingmagic/global/master/myvncserver.service
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/myvncserver2.zip
 unzip -qq myvncserver2.zip
 systemctl daemon-reload
 systemctl enable myvncserver.service
@@ -145,7 +145,7 @@ echo "${BLUE}Step 10/${STEPS}:${NC} Installing Cervantes Files"
 chown -R rathena:rathena /home/rathena
 chown -R rathena:rathena /usr/share/cervantes
 cd /home/rathena
-sudo -u rathena sh -c "wget -q https://github.com/gamingmagic/global/blob/master/vnc.sh"
+sudo -u rathena sh -c "wget -q https://github.com/gamingmagic/unattended-installer/raw/master/vnc.zip unzip -qq myvncserver2.zip"
 unzip -qq vnc.zip
 sudo -u rathena sh -c "chmod +x vnc.sh"
 sudo -u rathena sh -c "./vnc.sh $RATHENAPASS"

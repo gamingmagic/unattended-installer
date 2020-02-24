@@ -1,1 +1,1 @@
-pt-get update && apt-get -y install curl && cd /home && curl -o cerv -L https://raw.githubusercontent.com/gamingmagic/unattended-installer/master/cerv && sh cerv
+apt-get update && apt-get -y install curl && cd /home && curl -o cerv -L https://raw.githubusercontent.com/gamingmagic/unattended-installer/master/cerv && sh cerv

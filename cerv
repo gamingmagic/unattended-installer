@@ -58,37 +58,11 @@ bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password
 bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password_again password ragnarok"'
 
 apt-get -qy install mariadb-server
-#!/usr/bin/expect
-spawn /usr/bin/mysql_secure_installation
-
-expect "Enter current password for root (enter for none):"
-send "ragnarok\r"
-
-expect "Change the root password?"
-send "n\r"
-
-#expect "Set root password?"
-#send "y\r"
-
-#expect "New password:"
-#send "ragnarok\r"
-
-#expect "Re-enter new password:"
-#send "ragnarok\r"
-
-expect "Remove anonymous users?"
-send "y\r"
-
-expect "Disallow root login remotely?"
-send "y\r"
-
-expect "Remove test database and access to it?"
-send "y\r"
-
-expect "Reload privilege tables now?"
-send "y\r"
-
-interact
+wget -q https://github.com/gamingmagic/unattended-installer/raw/master/msi.zip
+unzip -qq msi.zip
+chmod +x msi.sh
+./msi.sh
+rm msi.sh
 
 
 

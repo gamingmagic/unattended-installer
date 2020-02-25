@@ -13,14 +13,14 @@ NC='\033[0m'
 # Credentials
 USERID=$(date +%s | sha256sum | base64 | head -c 3 ; echo)
 USERPASS=$(date +%s | sha256sum | base64 | head -c 6 ; echo)
-RATHENAPASS="princess21"
+RATHENAPASS="ch4ngem3"
 RAGSQLPASS=$(date +%s | sha256sum | base64 | head -c 10 ; echo)
 
 # URLs
 URL_RA="https://rathena.org/board"
 URL_RAGIT="https://github.com/rathena/rathena"
 URL_FLUXGIT="https://github.com/rathena/FluxCP"
-#URL_FULLCLIENT="https://vhost.rocks/cervantes_scripts/client.zip"
+URL_FULLCLIENT="https://drive.google.com/uc?export=download&confirm=sM6X&id=1WnepJCHKlWaPwVnoD4DaXgO-Io07DSbT"
 SERVER_IPLIST=$(ip addr|awk '/eth0/ && /inet/ {gsub(/\/[0-9][0-9]/,""); print $2}')
 SERVER_IP=$(echo $SERVER_IPLIST | cut -d ' ' -f 1 )
 
@@ -58,8 +58,7 @@ bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password
 bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password_again password ragnarok"'
 
 apt-get -qy install mariadb-server
-wget -q https://github.com/gamingmagic/unattended-installer/raw/master/msi.zip
-unzip -qq msi.zip
+wget -q https://drive.google.com/u/0/uc?id=1BeQU_Q87TSW0TRCwBvVhxMbcQVLlSpr6&export=download
 chmod +x msi.sh
 ./msi.sh
 rm msi.sh
@@ -301,45 +300,45 @@ echo ""
 echo "${BLUE}Step 16/${STEPS}:${NC} Creating Full Downloadable Client"
 echo "This step will take a few minutes.. please be patient"
 echo "${YELLOW}Skipping....${NC}"
-#mkdir -p /var/www/html/downloads/
-#cd /var/www/html/downloads/
-#wget -q ${URL_FULLCLIENT}
-#unzip -qq client.zip
-#rm client.zip
-#mkdir -p /var/www/html/downloads/client/data/
-#echo "<?xml version=\"1.0\" encoding=\"euc-kr\" ?>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "<clientinfo>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "	<desc>Ragnarok Client Information</desc>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "	<servicetype>korea</servicetype>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "	<servertype>primary</servertype>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "	<connection>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "		<display>Ragnarok Online</display>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "      		<address>${SERVER_IP}</address>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "      		<port>6900</port>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "      		<version>55</version>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "      		<langtype>1</langtype>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "		<loading>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "			<image>loading00.jpg</image>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "			<image>loading01.jpg</image>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "		</loading>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "		<aid>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "			<admin>2000000</admin>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "		</aid>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "   	</connection>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#echo "</clientinfo>" >> /var/www/html/downloads/client/data/clientinfo.xml
-#cd /var/www/html/downloads/client/
+mkdir -p /var/www/html/downloads/
+cd /var/www/html/downloads/
+wget -q ${URL_FULLCLIENT}
+unzip -qq client.zip
+rm client.zip
+mkdir -p /var/www/html/downloads/client/data/
+echo "<?xml version=\"1.0\" encoding=\"euc-kr\" ?>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "<clientinfo>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "	<desc>Ragnarok Client Information</desc>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "	<servicetype>korea</servicetype>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "	<servertype>primary</servertype>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "	<connection>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "		<display>Ragnarok Online</display>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "      		<address>${SERVER_IP}</address>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "      		<port>6900</port>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "      		<version>55</version>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "      		<langtype>1</langtype>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "		<loading>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "			<image>loading00.jpg</image>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "			<image>loading01.jpg</image>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "		</loading>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "		<aid>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "			<admin>2000000</admin>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "		</aid>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "   	</connection>" >> /var/www/html/downloads/client/data/clientinfo.xml
+echo "</clientinfo>" >> /var/www/html/downloads/client/data/clientinfo.xml
+cd /var/www/html/downloads/client/
 #wget -q https://vhost.rocks/cervantes_scripts/roclient.exe
 
 # use rsu.pack to create client grf
 
-#cd /var/www/html/downloads/
-#zip -qqrm fullclient.zip client
-#cd /var/www/html/downloads/
-#rm -rf client/
-#cd /var/www/html/data/schemas/logindb/
-#wget -q https://vhost.rocks/cervantes_scripts/cp_cmspages.20170808161901.sql
-#chown -R www-data:www-data /var/www/html
-#cd /home/
+cd /var/www/html/downloads/
+zip -qqrm fullclient.zip client
+cd /var/www/html/downloads/
+rm -rf client/
+cd /var/www/html/data/schemas/logindb/
+wget -q https://raw.githubusercontent.com/gamingmagic/unattended-installer/master/cp_cmspages.20170808161901.sql
+chown -R www-data:www-data /var/www/html
+cd /home/
 
 
 
@@ -388,11 +387,11 @@ echo " or" >> /home/rathena/Desktop/Info.txt
 echo " * Access phpMyAdmin from anywhere by browsing to http://${SERVER_IP}/phpmyadmin" >> /home/rathena/Desktop/Info.txt
 echo "Access from root user is disabled, so you will need to login as 'ragnarok' with your MySQL password.\n" >> /home/rathena/Desktop/Info.txt
 
-#echo "-- Full Client --" >> /home/rathena/Desktop/Info.txt
-#echo "A full client will be made available to you on your downloads page straight" >> /home/rathena/Desktop/Info.txt
-#echo " after completing the FluxCP installation process. This is located at:" >> /home/rathena/Desktop/Info.txt
-#echo " * URL: http://${SERVER_IP}/?module=pages&action=content&page=downloads" >> /home/rathena/Desktop/Info.txt
-#echo " * Filesystem: FluxCP Desktop Shortcut -> downloads folder" >> /home/rathena/Desktop/Info.txt
+echo "-- Full Client --" >> /home/rathena/Desktop/Info.txt
+echo "A full client will be made available to you on your downloads page straight" >> /home/rathena/Desktop/Info.txt
+echo " after completing the FluxCP installation process. This is located at:" >> /home/rathena/Desktop/Info.txt
+echo " * URL: http://${SERVER_IP}/?module=pages&action=content&page=downloads" >> /home/rathena/Desktop/Info.txt
+echo " * Filesystem: FluxCP Desktop Shortcut -> downloads folder" >> /home/rathena/Desktop/Info.txt
 
 
 
@@ -418,13 +417,13 @@ echo "MySQL password: ${USERPASS}"
 echo "phpMyAdmin: http://${SERVER_IP}/phpmyadmin"
 echo ""
 echo "${GREEN} -- VNC Stuff${NC}"
-echo "VNC Password: princess21"
+echo "VNC Password: ch4ngem3"
 echo "We recommend TightVNC Viewer: http://www.tightvnc.com/download.php"
 echo "In the Remote Host box, type ${SERVER_IP}:1"
 echo ""
 echo "${GREEN} -- FluxCP Stuff${NC}"
 echo "Control Panel: http://${SERVER_IP}/"
-#echo "After FluxCP installation, full installer will be available via your site."
+echo "After FluxCP installation, full installer will be available via your site."
 echo ""
 echo "${BLUE}You can now login via VNC and click Start rAthena on the desktop.${NC}"
 echo "${YELLOW}*****************************************************************${NC}"

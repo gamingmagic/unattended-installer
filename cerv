@@ -203,7 +203,7 @@ echo ""
 
 echo "${BLUE}Step 13/${STEPS}:${NC} Creating MySQL Database"
 mysqladmin -u root -pragnarok create ragnarok
-mysql -u root -pragnarok -e "CREATE USER ragnarok@localhost IDENTIFIED BY '${USERPASS}';"
+mysql -u root -pragnarok -e "CREATE USER ragnarok@localhost IDENTIFIED BY 'princess21';"
 mysql -u root -pragnarok -e "GRANT ALL PRIVILEGES ON ragnarok.* TO 'ragnarok'@'localhost';"
 mysql -u root -pragnarok -e "FLUSH PRIVILEGES;"
 mysql -u root -pragnarok ragnarok  < /home/rathena/Desktop/rAthena/sql-files/main.sql
@@ -222,7 +222,7 @@ mysql -u root -pragnarok ragnarok  < /home/rathena/Desktop/rAthena/sql-files/mob
 mysql -u root -pragnarok ragnarok  < /home/rathena/Desktop/rAthena/sql-files/mob_skill_db2.sql
 mysql -u root -pragnarok ragnarok  < /home/rathena/Desktop/rAthena/sql-files/mob_skill_db2_re.sql
 mysql -u root -pragnarok ragnarok  < /home/rathena/Desktop/rAthena/sql-files/mob_skill_db_re.sql
-mysql -u root -pragnarok -e "USE ragnarok; UPDATE login SET userid = '${USERID}', user_pass = '${USERPASS}' where sex = 'S';"
+mysql -u root -pragnarok -e "USE ragnarok; UPDATE login SET userid = '${USERID}', user_pass = 'princess21' where sex = 'S';"
 echo ""
 
 
@@ -252,7 +252,7 @@ echo " 				// -- It specifies the encoding to convert your MySQL data to on the 
 echo " 			'Hostname'   => '127.0.0.1'," >> /var/www/html/diff.diff
 echo " 			'Username'   => 'ragnarok'," >> /var/www/html/diff.diff
 echo "-			'Password'   => 'ragnarok'," >> /var/www/html/diff.diff
-echo "+			'Password'   => '${USERPASS}'," >> /var/www/html/diff.diff
+echo "+			'Password'   => 'princess21'," >> /var/www/html/diff.diff
 echo " 			'Database'   => 'ragnarok'," >> /var/www/html/diff.diff
 echo " 			'Persistent' => true," >> /var/www/html/diff.diff
 echo " 			'Timezone'   => null // Example: '+0:00' is UTC." >> /var/www/html/diff.diff
@@ -261,7 +261,7 @@ echo " 				// -- It specifies the encoding to convert your MySQL data to on the 
 echo " 			'Hostname'   => '127.0.0.1'," >> /var/www/html/diff.diff
 echo " 			'Username'   => 'ragnarok'," >> /var/www/html/diff.diff
 echo "-			'Password'   => 'ragnarok'," >> /var/www/html/diff.diff
-echo "+			'Password'   => '${USERPASS}'," >> /var/www/html/diff.diff
+echo "+			'Password'   => 'princess21'," >> /var/www/html/diff.diff
 echo " 			'Database'   => 'ragnarok'," >> /var/www/html/diff.diff
 echo " 			'Persistent' => true," >> /var/www/html/diff.diff
 echo " 			'Timezone'   => null // Possible values is as described in the comment in DbConfig." >> /var/www/html/diff.diff
@@ -345,21 +345,21 @@ cd /home/
 echo "${BLUE}Step 17/${STEPS}:${NC} Preparing auto-config import files"
 echo "//Cervantes\n" >> /home/rathena/Desktop/rAthena/conf/import/char_conf.txt
 echo "userid: ${USERID}" >> /home/rathena/Desktop/rAthena/conf/import/char_conf.txt
-echo "passwd: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/char_conf.txt
+echo "passwd: princess21" >> /home/rathena/Desktop/rAthena/conf/import/char_conf.txt
 echo "char_ip: ${SERVER_IP}" >> /home/rathena/Desktop/rAthena/conf/import/char_conf.txt
 
 echo "//Cervantes\n" >> /home/rathena/Desktop/rAthena/conf/import/map_conf.txt
 echo "userid: ${USERID}" >> /home/rathena/Desktop/rAthena/conf/import/map_conf.txt
-echo "passwd: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/map_conf.txt
+echo "passwd: princess21" >> /home/rathena/Desktop/rAthena/conf/import/map_conf.txt
 echo "map_ip: ${SERVER_IP}" >> /home/rathena/Desktop/rAthena/conf/import/map_conf.txt
 
 echo "//Cervantes\n" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
 echo "//use_sql_db: yes" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
-echo "login_server_pw: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
-echo "ipban_db_pw: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
-echo "char_server_pw: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
-echo "map_server_pw: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
-echo "log_db_pw: ${USERPASS}" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
+echo "login_server_pw: princess21" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
+echo "ipban_db_pw: princess21" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
+echo "char_server_pw: princess21" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
+echo "map_server_pw: princess21" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
+echo "log_db_pw: princess21" >> /home/rathena/Desktop/rAthena/conf/import/inter_conf.txt
 echo ""
 
 touch /home/rathena/Desktop/Info.txt
@@ -369,7 +369,7 @@ echo "-- MySQL --" >> /home/rathena/Desktop/Info.txt
 echo "root password is 'ragnarok', but can only be accessed locally from this system." >> /home/rathena/Desktop/Info.txt
 echo "For all other MySQL uses, please use the following credentials:" >> /home/rathena/Desktop/Info.txt
 echo "User: ragnarok" >> /home/rathena/Desktop/Info.txt
-echo "Password: ${USERPASS}\n" >> /home/rathena/Desktop/Info.txt
+echo "Password: princess21\n" >> /home/rathena/Desktop/Info.txt
 
 echo "-- SSH User --" >> /home/rathena/Desktop/Info.txt
 echo "User: rathena" >> /home/rathena/Desktop/Info.txt
@@ -413,7 +413,7 @@ echo "Server IP: ${SERVER_IP}"
 echo ""
 echo "${GREEN} -- MySQL Stuff${NC}"
 echo "MySQL user: ragnarok"
-echo "MySQL password: ${USERPASS}"
+echo "MySQL password: princess21"
 echo "phpMyAdmin: http://${SERVER_IP}/phpmyadmin"
 echo ""
 echo "${GREEN} -- VNC Stuff${NC}"

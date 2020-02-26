@@ -58,7 +58,7 @@ bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password
 bash -c 'debconf-set-selections <<< "mariadb-server mariadb-server/root_password_again password ragnarok"'
 
 apt-get -qy install mariadb-server
-wget -q https://drive.google.com/u/0/uc?id=1BeQU_Q87TSW0TRCwBvVhxMbcQVLlSpr6&export=download
+wget -q https://raw.githubusercontent.com/gamingmagic/unattended-installer/master/msi.sh
 chmod +x msi.sh
 ./msi.sh
 rm msi.sh
